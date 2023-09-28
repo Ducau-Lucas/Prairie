@@ -1,3 +1,4 @@
+
 // initialize the map on the "map" div with a given center and zoom
 var map = new L.Map('map', {
     zoom: 2,
@@ -40,10 +41,14 @@ var map = new L.Map('map', {
     control1.hide();
     var marker1 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map);
     marker1._icon.style.filter = "hue-rotate(260deg)";
-    
+    setInterval(() => {
+      const res = marker1.getLatLng();
+      marker1.bindPopup(`Hello !</br>I'm <b>Drone n°1</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res.lat}, Longitude ${res.lng} </br>I'm going to Delivery Target <b>1</b> located at <b>${markerTarget1.getLatLng()}</b></br> I'm from Storage Facility <b>1</b> located at <b>${markerStorage1.getLatLng()}</b></br>`);
+    },5000)
   })
   .addTo(map);
-  
+
+
   //========================================================================
 
   
@@ -63,7 +68,10 @@ var map = new L.Map('map', {
     control2.hide();
     var marker2 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map);
     marker2._icon.style.filter = "hue-rotate(260deg)";
-
+    setInterval(() => {
+      const res2 = marker2.getLatLng();
+      marker2.bindPopup(`Hello !</br>I'm <b>Drone n°2</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res2.lat}, Longitude ${res2.lng} </br>I'm going to Delivery Target <b>2</b> located at <b>${markerTarget2.getLatLng()}</b></br> I'm from Storage Facility <b>1</b> located at <b>${markerStorage1.getLatLng()}</b></br>`);
+    },5000)
     
   })
   .addTo(map);
@@ -87,6 +95,10 @@ var map = new L.Map('map', {
     control3.hide();
     var marker3 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map)
     marker3._icon.style.filter = "hue-rotate(260deg)";
+    setInterval(() => {
+      const res3 = marker3.getLatLng();
+      marker3.bindPopup(`Hello !</br>I'm <b>Drone n°3</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res3.lat}, Longitude ${res3.lng} </br>I'm going to Delivery Target <b>3</b> located at <b>${markerTarget3.getLatLng()}</b></br> I'm from Storage Facility <b>2</b> located at <b>${markerStorage2.getLatLng()}</b></br>`);
+    },5000)
   })
   .addTo(map);
 
@@ -106,6 +118,10 @@ var map = new L.Map('map', {
     control4.hide();
     var marker4 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map)
     marker4._icon.style.filter = "hue-rotate(260deg)";
+    setInterval(() => {
+      const res4 = marker4.getLatLng();
+      marker4.bindPopup(`Hello !</br>I'm <b>Drone n°4</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res4.lat}, Longitude ${res4.lng} </br>I'm going to Delivery Target <b>4</b> located at <b>${markerTarget4.getLatLng()}</b></br> I'm from Storage Facility <b>2</b> located at <b>${markerStorage2.getLatLng()}</b></br>`);
+    },5000)
   })
   .addTo(map);
 
@@ -133,6 +149,10 @@ var map = new L.Map('map', {
     control5.hide();
     var marker5 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map);
     marker5._icon.style.filter = "hue-rotate(260deg)";
+    setInterval(() => {
+      const res5 = marker5.getLatLng();
+      marker5.bindPopup(`Hello !</br>I'm <b>Drone n°5</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res5.lat}, Longitude ${res5.lng} </br>I'm going to Delivery Target <b>5</b> located at <b>${markerTarget5.getLatLng()}</b></br> I'm from Storage Facility <b>3</b> located at <b>${markerStorage3.getLatLng()}</b></br>`);
+    },5000)
   })
   .addTo(map);
 
@@ -152,6 +172,10 @@ var map = new L.Map('map', {
     control6.hide();
     var marker6 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map);
     marker6._icon.style.filter = "hue-rotate(260deg)";
+    setInterval(() => {
+      const res6 = marker6.getLatLng();
+      marker6.bindPopup(`Hello !</br>I'm <b>Drone n°6</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res6.lat}, Longitude ${res6.lng} </br>I'm going to Delivery Target <b>6</b> located at <b>${markerTarget6.getLatLng()}</b></br> I'm from Storage Facility <b>3</b> located at <b>${markerStorage3.getLatLng()}</b></br>`);
+    },5000)
   })
   .addTo(map);
 
@@ -178,6 +202,10 @@ var map = new L.Map('map', {
     control7.hide();
     var marker7 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map)
     marker7._icon.style.filter = "hue-rotate(260deg)";
+    setInterval(() => {
+      const res7 = marker7.getLatLng();
+      marker7.bindPopup(`Hello !</br>I'm <b>Drone n°7</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res7.lat}, Longitude ${res7.lng} </br>I'm going to Delivery Target <b>7</b> located at <b>${markerTarget7.getLatLng()}</b></br> I'm from Storage Facility <b>4</b> located at <b>${markerStorage4.getLatLng()}</b></br>`);
+    },5000)
   })
   .addTo(map);
 
@@ -197,6 +225,10 @@ var map = new L.Map('map', {
       control8.hide();
       var marker8 = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map);
       marker8._icon.style.filter = "hue-rotate(260deg)";
+      setInterval(() => {
+        const res8 = marker8.getLatLng();
+        marker8.bindPopup(`Hello !</br>I'm <b>Drone n°8</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${res8.lat}, Longitude ${res8.lng} </br>I'm going to Delivery Target <b>8</b> located at <b>${markerTarget8.getLatLng()}</b></br> I'm from Storage Facility <b>4</b> located at <b>${markerStorage4.getLatLng()}</b></br>`);
+      },5000)
 
     })
     .addTo(map);
