@@ -265,11 +265,24 @@ map.on('click', function (e) {
 
   var controlN = L.Routing.control({
     waypoints: [
-      clickedLatLng, 
       closestStorage, 
-      clickedLatLng
+      clickedLatLng, 
+      closestStorage
     ],
-  }).addTo(map);
-  controlN.hide();
+  })
+  .on('routeselected', function(e) {
+    var markerTargetN = L.marker(clickedLatLng).addTo(map);
+    markerTargetN._icon.style.filter = "hue-rotate(160deg)";
+    var route = e.route;
+    controlN.hide();
+    var markerN = L.Marker.movingMarker(route.coordinates, times, {autostart: true, loop: true}).addTo(map);
+    markerN._icon.style.filter = "hue-rotate(260deg)";
+    setInterval(() => {
+      const resN = markerN.getLatLng();
+      markerN.bindPopup(`Hello !</br>I'm <b>Drone n°?</b> !</br> Here's some informations for you : </br> Current Position : Latitude ${resN.lat}, Longitude ${resN.lng} </br>I'm going to Delivery Target <b>N</b> located at <b>${markerTargetN.getLatLng()}</b></br> I'm from Storage Facility <b>N</b> located at <b>${closestStorage.getLatLng()}</b></br>`);
+    },5000);
+
+  })
+  .addTo(map);
 });
 
