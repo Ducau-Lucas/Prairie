@@ -3,6 +3,7 @@
 var map = new L.Map('map', {
     zoom: 2,
     
+    
   });
   
   // create a new tile layer
@@ -23,6 +24,7 @@ var map = new L.Map('map', {
   var Pau = [[43.2921, -0.3843], [43.3088, -0.3435]];
   
   map.fitBounds(Pau);
+
   
   //========================================================================
   
@@ -233,3 +235,47 @@ var map = new L.Map('map', {
     })
     .addTo(map);
     
+
+//========================================================================
+
+var userMarker; // Variable to store the user-added marker
+
+// Define an array of your storage facility markers
+var storageMarkers = [markerStorage1, markerStorage2, markerStorage3, markerStorage4];
+
+// Add a click event listener to the map
+map.on('click', function (e) {
+  if (userMarker) {
+    map.removeLayer(userMarker); // Remove the previous user-added marker
+  }
+
+  // Get the coordinates where the user clicked
+  var clickedLatLng = e.latlng;
+
+  // Calculate the distance to each storage facility and find the closest one
+  var closestStorage = null;
+  var minDistance = Infinity;
+
+  for (var i = 0; i < storageMarkers.length; i++) {
+    var storageLatLng = storageMarkers[i].getLatLng();
+    var distance = clickedLatLng.distanceTo(storageLatLng);
+
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestStorage = storageLatLng;
+    }
+  }
+
+  // Create a marker at the clicked location
+  userMarker = L.marker(clickedLatLng).addTo(map);
+
+  // Create a route from the user-added marker to the nearest storage facility
+  var controlN = L.Routing.control({
+    waypoints: [
+      clickedLatLng, // User-added marker
+      closestStorage, // Nearest storage facility
+    ],
+  }).addTo(map);
+  controlN.hide();
+});
+
